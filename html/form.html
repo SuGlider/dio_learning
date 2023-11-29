@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This is a Form</title>
     <script>
+        function validateName(name) {
+           if (name == "") return("Nome Vazio. ")
+           return ""
+        }
+        function validateAge(age) {
+           return ""
+        }
+        function validatePassword(pwd) {
+            return ""
+        }
         function validateFormOnSubmit(theForm) {
             var reason = "";
             reason += validateName(theForm.name);
-            reason += validatePhone(theForm.phone);
-            reason += validateEmail(theForm.emaile);
+            reason += validateAge(theForm.age);
+            reason += validatePassword(theForm.pwd);
 
             if (reason != "") {
                 alert("Some fields need correction:\n" + reason);
             } else {
-                simpleCart.checkout();
+                //simpleCart.checkout();
+                alert("All Fine! Submitted!");
             }
             return false;
         }
@@ -47,6 +58,48 @@
         const myBody = document.body.innerHTML;
         document.getElementById("myTitle").innerHTML = "This is a form [not sent]";
     </script>
-
+    <br>
+    <h2 style="color: blue;"> A regular Form (inside a table):</h3>
+    <form onsubmit="javascript:validateFormOnSubmit(this)" autocomplete="on" target="_blank" action="#" style="font-size: medium;" name="user_data_form" method="GET">
+        <table>
+            <tr>
+                <td><b>Name:</b></td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td><b>Age:</b></td>
+                 <td><input type="nummber" name="age"></td>
+            </tr>
+            <tr>   
+                <td><b>Password:</b></td>
+                <td><input type="pasword" name="pwd"></td>
+            </tr>
+            <tr>   
+                <td><button type="submit">Send</button></td>
+                <td><button type="reset">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <h2> Form com vários tipos</h2>
+    <form action="#">
+        <label>Text:</label> <input type="text" maxlength="10" /><br>
+        <label>Number:</label> <input type="number" min="1" max="10" step="2" /><br>
+        <label>Range:</label><input type="range" name="" id="" min="0" max="50" value="25"><br>
+        <label>Color:</label><input type="color" name="Pick" id=""><br>
+        <label>E-Mail:</label><input type="email" name="" id=""><br>
+        <label>URL:</label><input type="url" name="" id=""><br>
+        <label>Date:</label><input type="date" name="" id=""><br>
+        <label>Week:</label><input type="week" name="" id=""><br>
+        <label>Month:</label><input type="month" name="" id=""><br>
+        <label>CheckBox:</label><input type="checkbox" name="Op1" id="">
+        <input type="checkbox" name="Op2" id=""><br>
+        <label>RadioButton:</label><input type="radio" name="OpR" id="">
+        <input type="radio" name="OpR" id=""><br>
+        <label>File:</label><input type="file" multiple="on" id=""><br>
+        <label>Search:</label><input type="search" name="" id=""><br>
+        <br>
+        <label>Hidden:</label><input type="hidden" name="not_visible" value="123" id=""><br>
+        <label>Button:</label> <input type="button" value="Send"><br>
+    </form>
 </body>
 </html>
