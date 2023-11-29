@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is a Form</title>
+    <script>
+        function validateFormOnSubmit(theForm) {
+            var reason = "";
+            reason += validateName(theForm.name);
+            reason += validatePhone(theForm.phone);
+            reason += validateEmail(theForm.emaile);
+
+            if (reason != "") {
+                alert("Some fields need correction:\n" + reason);
+            } else {
+                simpleCart.checkout();
+            }
+            return false;
+        }
+
+        function myFunction(theForm) {
+            alert("This comes from a JS Function");
+            // User must press OK in the dialog windows and then the Title will change
+            const myBody = document.body.innerHTML;
+            document.getElementById("myTitle").innerHTML = "This is a form [Sent!]";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="myTitle"> This is a form </h1>
+    <a href="index.html">GO Back</a>
+    <form action="javascript:alert('Hello there, I am being submitted');" method="get">
+        <button type="submit">
+            Let's submit it Alert
+        </button>
+    </form>
+    <br>
+    <form action="javascript:;" onsubmit="myFunction(this)">
+        <button type="submit">
+            Let's submit it to JS
+        </button>
+    </form>
+
+    <script>
+        <!-- This is executed to change Body content -->
+        const myBody = document.body.innerHTML;
+        document.getElementById("myTitle").innerHTML = "This is a form [not sent]";
+    </script>
+
+</body>
+</html>
