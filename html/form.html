@@ -37,6 +37,23 @@
             document.getElementById("myTitle").innerHTML = "This is a form [Sent!]";
         }
     </script>
+    <--! Styles CSS podem ser aplicados em qualquer lugar no Body-->
+    <--! a classe .row é usada para linhas e separar campos -->
+    <--! modificamos todos os tag label e fieldset usados em Body -->
+    <style>
+        .row { margin:5px }
+        label {
+            width: 100px;
+            text-align: right;
+            display: inline-block;
+            padding-right: 5px;
+        }
+        fieldset {
+            margin: 15px 0;
+            border-radius: 10px;
+            border-color: brown;
+        }
+    </style>
 </head>
 <body>
     <h1 id="myTitle"> This is a form </h1>
@@ -80,26 +97,47 @@
             </tr>
         </table>
     </form>
-    <h2> Form com vários tipos</h2>
-    <form action="#">
-        <label>Text:</label> <input type="text" maxlength="10" /><br>
-        <label>Number:</label> <input type="number" min="1" max="10" step="2" /><br>
-        <label>Range:</label><input type="range" name="" id="" min="0" max="50" value="25"><br>
-        <label>Color:</label><input type="color" name="Pick" id=""><br>
-        <label>E-Mail:</label><input type="email" name="" id=""><br>
-        <label>URL:</label><input type="url" name="" id=""><br>
-        <label>Date:</label><input type="date" name="" id=""><br>
-        <label>Week:</label><input type="week" name="" id=""><br>
-        <label>Month:</label><input type="month" name="" id=""><br>
-        <label>CheckBox:</label><input type="checkbox" name="Op1" id="">
-        <input type="checkbox" name="Op2" id=""><br>
-        <label>RadioButton:</label><input type="radio" name="OpR" id="">
-        <input type="radio" name="OpR" id=""><br>
-        <label>File:</label><input type="file" multiple="on" id=""><br>
-        <label>Search:</label><input type="search" name="" id=""><br>
+    <h2> Form com vários tipos -- <enter> envia -- sempre usar onSubmit</enter></h2>
+    <form action="#" method="GET" onsubmit="javascript:myFunction(this)">
+    <fieldset>
+        <legend> Form :: Part One </legend>
+        <div class="row"><label>Text:</label> <input type="text" maxlength="10" />
+        <label>Number:</label> <input type="number" min="1" max="10" step="2" />
+        <div class="row"></div><label>Range:</label><input type="range" name="" id="" min="0" max="50" value="25">
+        <label>Color:</label><input type="color" name="Pick" id=""></div>
+    </fieldset>
+    <fieldset>
+        <legend> Form :: Part Two </legend>
+        <div class="row"></div><label>E-Mail:</label><input type="email" name="" id="">
+        <label>URL:</label><input type="url" name="" id=""></div>
+        <div class="row"></div><label>Date:</label><input type="date" name="" id="">
+        <label>Week:</label><input type="week" name="" id=""></div>
+        <div class="row"></div><label>Month:</label><input type="month" name="" id="">
+        <label>CheckBox:</label><input type="checkbox" name="Opt[]" id="" value="Op1">
+        </div><input type="checkbox" name="Opt[]" id="" value="Op2">
+        <input type="checkbox" disabled name="Opt[]" id="" value="Op3">
+        <label>RadioButton:</label><input type="radio" name="OpR" id=""  value="Opt1">
+        <input type="radio" name="OpR" id="" value="Opt2"></div>
+    </fieldset>
+
+        <div class="row"></div><label>File:</label><input type="file" multiple="on" id="">
+        <label>Search:</label><input type="search" name="" id=""></div>
         <br>
-        <label>Hidden:</label><input type="hidden" name="not_visible" value="123" id=""><br>
-        <label>Button:</label> <input type="button" value="Send"><br>
+        <div class="row"></div><label>Genre:</label>
+        <select name="genre">
+            <option value="male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        </div>
+        <br>
+        <div class="row"></div><label>Text Area:</label><br>
+        <textarea name="openText" id="" cols="30" rows="5"></textarea>
+        <br>
+        <label>Hidden:</label><input type="hidden" name="not_visible" value="123" id=""></div>
+        <div class="row"></div><label>Button1:</label> <input type="button" value="OK">
+        <label>Button2:</label> <button type="submit">SEND</button>
+        <label>Button2:</label> <button type="button" onclick="">Clickable</button></div>
     </form>
 </body>
 </html>
